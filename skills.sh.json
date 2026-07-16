@@ -1,0 +1,13 @@
+{
+    "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+    "notGrouped": "bottom",
+    "groupings": [
+        {
+            "title": "Code Quality",
+            "description": "Verification, cleanup, runtime auditing, and security-focused review workflows.",
+            "skills": [
+                "code-verify-and-clean-skill"
+            ]
+        }
+    ]
+}
