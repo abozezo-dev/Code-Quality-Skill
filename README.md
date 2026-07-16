@@ -1,6 +1,6 @@
 # 🛡️ Code Verification & Cleaning Skill
 
-> **A reusable AI skill for code verification, cleanup, runtime auditing, and security-focused review.**
+> **A reusable AI skill for code verification, cleanup, runtime auditing, and security-focused review, organized under `skills/code-verify-and-clean-skill/` for skills.sh discovery.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -51,14 +51,24 @@ This skill empowers AI agents to:
 ### Installation
 
 ```bash
-npx skills add abozezo-dev/Code-Quality-Skill
+npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 ```
 
 ### Quick Start
 
 1. Add the skill to your AI agent configuration
 2. Run verification on your target codebase
-3. Review the generated reports in `assets/`
+3. Review the generated report templates in `skills/code-verify-and-clean-skill/assets/`
+
+---
+
+## 🔗 Skills.sh Listing
+
+View this skill on skills.sh:
+
+- [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
+
+The repository page is customized with [`skills.sh.json`](skills.sh.json), and the skill files live under [`skills/code-verify-and-clean-skill/`](skills/code-verify-and-clean-skill/) for a clean skills.sh-compatible layout.
 
 ---
 
@@ -75,27 +85,29 @@ The repository page is customized with [`skills.sh.json`](skills.sh.json), which
 ## 📁 Repository Structure
 
 ```
-code-verify-and-clean-skill/
-├── assets/
-│   ├── report-template.md          # Post-modification report template
-│   ├── review-template.md          # Template for code reviews
-│   ├── scan-template.md            # Pre-modification scan template
-│   └── verification-checklist.md   # Comprehensive checklist
-├── reference/
-│   ├── code-cleaning-universal.md  # Cleaning standards & patterns
-│   ├── devtools-verification.md    # Browser audit workflows
-│   ├── reporting-workflow.md       # SCAN.md and REPORT.md workflow
-│   └── security-verification.md    # Security check guidelines
-├── Scripts/
-│   └── verify-pipeline.sh          # Automated verification script
+Code-Quality-Skill/
+├── skills/
+│   └── code-verify-and-clean-skill/
+│       ├── assets/
+│       │   ├── report-template.md          # Post-modification report template
+│       │   ├── review-template.md          # Template for code reviews
+│       │   ├── scan-template.md            # Pre-modification scan template
+│       │   └── verification-checklist.md   # Comprehensive checklist
+│       ├── reference/
+│       │   ├── code-cleaning-universal.md  # Cleaning standards & patterns
+│       │   ├── devtools-verification.md    # Browser audit workflows
+│       │   ├── reporting-workflow.md       # SCAN.md and REPORT.md workflow
+│       │   └── security-verification.md    # Security check guidelines
+│       ├── scripts/
+│       │   └── verify-pipeline.sh          # Automated verification script
+│       └── SKILL.md                        # Full skill specification
 ├── .github/
 │   └── workflows/
-│       └── ci.yml                  # CI/CD pipeline
-├── .gitignore                      # Local and generated file exclusions
-├── skills.sh.json                  # skills.sh repository page customization
-├── SKILL.md                        # Full skill specification
-├── LICENSE                         # MIT License
-└── README.md                       # You are here!
+│       └── ci.yml                          # CI/CD pipeline
+├── .gitignore                              # Local and generated file exclusions
+├── skills.sh.json                          # skills.sh repository page customization
+├── LICENSE                                 # MIT License
+└── README.md                               # You are here!
 ```
 
 ---
@@ -133,7 +145,7 @@ npm run lint
 npm run format
 
 # Execute pre-checks
-./Scripts/verify-pipeline.sh
+./skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
 ```
 
 ### Phase 2: Structural Review
@@ -158,20 +170,20 @@ The verification and cleaning workflow produces two application reports:
 | `SCAN.md` | Before modifications | Read-only scan report covering pre-modification verification, cleaning, and security findings. No application files may be modified during this stage. |
 | `REPORT.md` | After modifications | Final application report documenting what changed, what was verified, remaining risks, and the final security/cleaning status. |
 
-Use `SCAN.md` to establish the baseline state of the application before edits, then use `REPORT.md` to summarize the completed remediation and post-change validation. See `reference/reporting-workflow.md` for the full workflow and use `assets/scan-template.md` and `assets/report-template.md` as starting points for consistent reports.
+Use `SCAN.md` to establish the baseline state of the application before edits, then use `REPORT.md` to summarize the completed remediation and post-change validation. See `skills/code-verify-and-clean-skill/reference/reporting-workflow.md` for the full workflow and use `skills/code-verify-and-clean-skill/assets/scan-template.md` and `skills/code-verify-and-clean-skill/assets/report-template.md` as starting points for consistent reports.
 
 ---
 
 ## 📚 Additional Resources
 
-- [DevTools Verification Guide](reference/devtools-verification.md)
-- [Code Cleaning Standards](reference/code-cleaning-universal.md)
-- [Security Verification](reference/security-verification.md)
-- [Reporting Workflow Guide](reference/reporting-workflow.md)
-- [SCAN.md Template](assets/scan-template.md)
-- [REPORT.md Template](assets/report-template.md)
-- [Review Template](assets/review-template.md)
-- [Verification Checklist](assets/verification-checklist.md)
+- [DevTools Verification Guide](skills/code-verify-and-clean-skill/reference/devtools-verification.md)
+- [Code Cleaning Standards](skills/code-verify-and-clean-skill/reference/code-cleaning-universal.md)
+- [Security Verification](skills/code-verify-and-clean-skill/reference/security-verification.md)
+- [Reporting Workflow Guide](skills/code-verify-and-clean-skill/reference/reporting-workflow.md)
+- [SCAN.md Template](skills/code-verify-and-clean-skill/assets/scan-template.md)
+- [REPORT.md Template](skills/code-verify-and-clean-skill/assets/report-template.md)
+- [Review Template](skills/code-verify-and-clean-skill/assets/review-template.md)
+- [Verification Checklist](skills/code-verify-and-clean-skill/assets/verification-checklist.md)
 
 ---
 

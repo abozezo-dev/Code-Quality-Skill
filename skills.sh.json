@@ -4,7 +4,7 @@
     "groupings": [
         {
             "title": "Code Quality",
-            "description": "Verification, cleanup, runtime auditing, and security-focused review workflows.",
+            "description": "Code verification, cleanup, runtime auditing, and security review skills.",
             "skills": [
                 "code-verify-and-clean-skill"
             ]
