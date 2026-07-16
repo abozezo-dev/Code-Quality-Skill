@@ -29,3 +29,11 @@ This checklist must be strictly followed before approving any code changes or co
 - [ ] Has the code been formatted and linted?
 - [ ] Has the Browser DevTools console been checked for hydration or runtime errors?
 - [ ] Were unused imports, dead variables, and commented-out blocks removed?
+
+## 6. Reporting Workflow
+- [ ] Was `SCAN.md` created before application file modifications?
+- [ ] Does `SCAN.md` explicitly confirm the pre-modification stage was read-only?
+- [ ] Does `SCAN.md` include verification, cleaning, and security findings?
+- [ ] Were verification, cleaning, and security checks repeated after modifications?
+- [ ] Was `REPORT.md` created after modifications as the final application report?
+- [ ] Does `REPORT.md` document changes made, checks performed, remaining risks, and security/cleaning status?

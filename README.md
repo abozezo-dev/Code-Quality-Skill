@@ -15,6 +15,7 @@
 - [Repository Structure](#-repository-structure)
 - [Core Principles](#-core-principles)
 - [Verification Pipeline](#-verification-pipeline)
+- [Reporting Workflow](#-reporting-workflow)
 - [License](#-license)
 
 ---
@@ -65,11 +66,14 @@ npx skills add abozezo-dev/Code-Quality-Skill
 ```
 code-verify-and-clean-skill/
 ├── assets/
+│   ├── report-template.md          # Post-modification report template
 │   ├── review-template.md          # Template for code reviews
+│   ├── scan-template.md            # Pre-modification scan template
 │   └── verification-checklist.md   # Comprehensive checklist
 ├── reference/
 │   ├── code-cleaning-universal.md  # Cleaning standards & patterns
 │   ├── devtools-verification.md    # Browser audit workflows
+│   ├── reporting-workflow.md       # SCAN.md and REPORT.md workflow
 │   └── security-verification.md    # Security check guidelines
 ├── Scripts/
 │   └── verify-pipeline.sh          # Automated verification script
@@ -132,11 +136,27 @@ npm run format
 
 ---
 
+## 📝 Reporting Workflow
+
+The verification and cleaning workflow produces two application reports:
+
+| Report | When Generated | Purpose |
+|--------|----------------|---------|
+| `SCAN.md` | Before modifications | Read-only scan report covering pre-modification verification, cleaning, and security findings. No application files may be modified during this stage. |
+| `REPORT.md` | After modifications | Final application report documenting what changed, what was verified, remaining risks, and the final security/cleaning status. |
+
+Use `SCAN.md` to establish the baseline state of the application before edits, then use `REPORT.md` to summarize the completed remediation and post-change validation. See `reference/reporting-workflow.md` for the full workflow and use `assets/scan-template.md` and `assets/report-template.md` as starting points for consistent reports.
+
+---
+
 ## 📚 Additional Resources
 
 - [DevTools Verification Guide](reference/devtools-verification.md)
 - [Code Cleaning Standards](reference/code-cleaning-universal.md)
 - [Security Verification](reference/security-verification.md)
+- [Reporting Workflow Guide](reference/reporting-workflow.md)
+- [SCAN.md Template](assets/scan-template.md)
+- [REPORT.md Template](assets/report-template.md)
 - [Review Template](assets/review-template.md)
 - [Verification Checklist](assets/verification-checklist.md)
 

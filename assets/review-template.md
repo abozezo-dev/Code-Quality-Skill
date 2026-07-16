@@ -32,3 +32,16 @@
 - **Static Analysis:** [Pass / Fixed X warnings]
 - **Type Checking:** [Pass / Fail]
 - **Dynamic Audit (Browser Console):** [Clean / Errors detected and resolved]
+
+---
+
+## Reporting Artifacts
+- **Pre-modification report:** `SCAN.md` [Created / Missing / Not Applicable]
+- **Post-modification report:** `REPORT.md` [Created / Missing / Not Applicable]
+- **Read-only scan confirmation:** [Confirmed / Not Confirmed]
+- **Final verification repeated:** [Yes / No]
+- **Final cleaning status:** [Clean / Risks remain]
+- **Final security status:** [Clean / Risks remain]
+
+## Remaining Risks
+- [Document unresolved verification, cleaning, security, or environment risks.]
