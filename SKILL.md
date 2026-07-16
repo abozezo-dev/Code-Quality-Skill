@@ -68,6 +68,20 @@ Enforce structural barriers during execution routines:
 🟡 [code-smell] - Code functions properly but introduces technical debt, bloat, or violates efficiency guidelines
 🟢 [refactored] - Cleanups automatically deployed by the agent (formatting updates, typo fixes)
 Verification & Cleaning Pipeline
+
+Reporting is a required part of the verification and cleaning workflow. Agents must produce a complete read-only scan report before changing files and a complete final report after verification and cleanup changes are complete.
+
+Pre-Modification Reporting Stage (Read-Only)
+
+Before any file modifications are made:
+
+1. Scan the application without modifying files.
+2. Create `SCAN.md` as the complete pre-modification application report.
+3. Include verification, cleaning, and security findings in `SCAN.md`.
+4. Explicitly state that no files may be modified during this stage.
+
+No files may be modified during the pre-modification reporting stage except for creating `SCAN.md` after the read-only scan is complete.
+
 Phase 1: Static Analysis & Compiling (Automated Passes)
 
 Trigger the repository’s native formatting pipeline using Bash (e.g., npm run lint, cargo fmt, flake8).
@@ -90,6 +104,17 @@ Initialize local preview servers using Bash.
 Deploy the Browser / DevTools Tool directly to the rendered address.
 Console Inspections: Read console.error and console.warn outputs. Resolve React hydrations or hidden exceptions immediately.
 Network Validations: Trace payloads. Ensure no 400/500 triggers fire on interface actions.
+
+Post-Modification Reporting Stage
+
+After files have been scanned and modified:
+
+1. Perform verification, cleaning, and security checks again.
+2. Create `REPORT.md` as the complete post-modification application report.
+3. Include what was changed, what was verified, remaining risks, and security/cleaning status.
+
+`REPORT.md` must be treated as the final application report for the completed workflow and should reconcile findings from `SCAN.md` with the implemented changes and remaining risks.
+
 Tool-Specific Execution Guides
 Tool	Action Standard	Expected Outcome
 Bash	Run tests, linters, and native package builders	Zero errors, clear build telemetry, verified tests
@@ -101,9 +126,12 @@ Topic	Reference File	Key Target Areas
 Dynamic Verification	reference/devtools-verification.md	Headless browser workflows, layout auditing, console checks
 Code Cleaning Standards	reference/code-cleaning-universal.md	Technical debt elimination, structural complexity reduction
 Security Verification	reference/security-verification.md	Input injection blocks, client-side exposure auditing, token security
+Reporting Workflow	reference/reporting-workflow.md	Required SCAN.md and REPORT.md workflow, evidence standards, report contents
 Additional Resources & Assets
 reference/devtools-verification.md
 reference/code-cleaning-universal.md
 reference/security-verification.md
 assets/verification-checklist.md
 assets/review-template.md
+assets/scan-template.md
+assets/report-template.md
