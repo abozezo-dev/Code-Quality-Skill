@@ -12,6 +12,7 @@
 - [Purpose](#-purpose)
 - [Features](#-features)
 - [Getting Started](#-getting-started)
+- [Skills.sh Listing](#-skillssh-listing)
 - [Repository Structure](#-repository-structure)
 - [Core Principles](#-core-principles)
 - [Verification Pipeline](#-verification-pipeline)
@@ -61,6 +62,16 @@ npx skills add abozezo-dev/Code-Quality-Skill
 
 ---
 
+## 🔗 Skills.sh Listing
+
+View this skill on skills.sh:
+
+- [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
+
+The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups this skill under **Code Quality** for easier discovery.
+
+---
+
 ## 📁 Repository Structure
 
 ```
@@ -80,6 +91,8 @@ code-verify-and-clean-skill/
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                  # CI/CD pipeline
+├── .gitignore                      # Local and generated file exclusions
+├── skills.sh.json                  # skills.sh repository page customization
 ├── SKILL.md                        # Full skill specification
 ├── LICENSE                         # MIT License
 └── README.md                       # You are here!
