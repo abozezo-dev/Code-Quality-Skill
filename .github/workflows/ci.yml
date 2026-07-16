@@ -52,10 +52,10 @@ jobs:
       - name: Run verification script
         shell: bash
         run: |
-          chmod +x scripts/verify-pipeline.sh
-          ./scripts/verify-pipeline.sh
+          chmod +x skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
+          ./skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
 
       - name: Shell syntax check
         shell: bash
         run: |
-          bash -n scripts/verify-pipeline.sh
+          bash -n skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
