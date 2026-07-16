@@ -12,6 +12,13 @@ This skill helps an AI agent:
 - enforce clean architecture
 - validate builds, tests, and linting
 
+
+## Getting Started
+
+1- install 
+`npx skills add abozezo-dev/Code-Quality-Skill`
+
+
 ## Repository Structure
 
 ```text
