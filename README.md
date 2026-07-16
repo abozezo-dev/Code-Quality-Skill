@@ -16,6 +16,7 @@ This skill helps an AI agent:
 ## Getting Started
 
 1- install 
+
 `npx skills add abozezo-dev/Code-Quality-Skill`
 
 
