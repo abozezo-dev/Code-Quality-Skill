@@ -1,14 +1,41 @@
 {
-  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
-  "notGrouped": "bottom",
-  "groupings": [
-    {
-      "title": "Code Quality",
-      "description": "Code verification, cleanup, runtime auditing, and security review skills.",
-      "skills": [
-        "code-execution-skill",
-        "code-verify-and-clean-skill"
-      ]
-    }
-  ]
+    "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+    "notGrouped": "bottom",
+    "groupings": [
+        {
+            "title": "Clean Code",
+            "description": "Refactoring and code-cleaning guidance for maintainable, well-structured code.",
+            "skills": [
+                "clean-code"
+            ]
+        },
+        {
+            "title": "Verification",
+            "description": "Focused checks for code correctness and implementation quality.",
+            "skills": [
+                "code-verification"
+            ]
+        },
+        {
+            "title": "Runtime Auditing",
+            "description": "Live application and browser-runtime auditing workflows.",
+            "skills": [
+                "runtime-auditing"
+            ]
+        },
+        {
+            "title": "Security Review",
+            "description": "Security-focused review workflows for identifying vulnerabilities and exposure risks.",
+            "skills": [
+                "security-review"
+            ]
+        },
+        {
+            "title": "Bundled Workflow",
+            "description": "The all-in-one orchestration skill that combines verification, cleaning, runtime auditing, and security review.",
+            "skills": [
+                "code-verify-and-clean-skill"
+            ]
+        }
+    ]
 }
