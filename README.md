@@ -10,50 +10,48 @@
 ## 📋 Table of Contents
 
 - [Purpose](#-purpose)
-- [Features](#-features)
-- [Getting Started](#-getting-started)
-- [Skills.sh Listing](#-skillssh-listing)
+- [Sub-skills](#-sub-skills)
+- [Installation](#-installation)
 - [Repository Structure](#-repository-structure)
 - [Core Principles](#-core-principles)
-- [Verification Pipeline](#-verification-pipeline)
-- [Reporting Workflow](#-reporting-workflow)
+- [Workflow](#-workflow)
+- [Resources](#-resources)
 - [License](#-license)
 
 ---
 
 ## 🎯 Purpose
 
-This skill empowers AI agents to:
+Code Quality Skills separates code-quality work into small, composable sub-skills. Choose a targeted skill when you need one type of review, or use the all-in-one bundle when a change needs the entire verification-and-cleaning workflow.
 
-- ✅ **Verify code correctness** - Ensure logic works as intended
-- 🧹 **Remove dead code & duplication** - Keep codebases lean and maintainable
-- 🔍 **Audit runtime behavior** - Browser-based verification with DevTools
-- 🔒 **Check security issues** - Identify vulnerabilities and exposure risks
-- 🏗️ **Enforce clean architecture** - Maintain modular, single-responsibility design
-- 🧪 **Validate builds, tests & linting** - Automated quality gates
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---------|-------------|
-| **Static Analysis** | Automated linting, formatting, and compilation checks |
-| **Runtime Auditing** | Live browser testing with console & network inspection |
-| **Code Sanitization** | Remove unused imports, variables, and technical debt |
-| **Security Scanning** | Detect injection points, token exposure, and client-side risks |
-| **Architecture Review** | Enforce modularity and reusability patterns |
+| Need | Owning sub-skill |
+|------|------------------|
+| Remove dead code, duplication, and unnecessary complexity | [Clean Code](skills/clean-code/SKILL.md) |
+| Run builds, tests, linters, and formatting checks | [Code Verification](skills/code-verification/SKILL.md) |
+| Inspect a running frontend with browser DevTools | [Runtime Auditing](skills/runtime-auditing/SKILL.md) |
+| Review injection risks, exposed tokens, and client-side security issues | [Security Review](skills/security-review/SKILL.md) |
+| Perform the complete scan, cleanup, verification, and reporting workflow | [Code Verification & Cleaning bundle](skills/code-verify-and-clean-skill/SKILL.md) |
 
 ---
 
-## 🚀 Getting Started
+## 🧩 Sub-skills
 
-### Installation
+- **[Clean Code](skills/clean-code/SKILL.md)** — owns dead-code removal, duplicate-code reduction, simplification, and modularity improvements.
+- **[Code Verification](skills/code-verification/SKILL.md)** — owns compilation, tests, linting, formatting, and other automated quality gates.
+- **[Runtime Auditing](skills/runtime-auditing/SKILL.md)** — owns browser-based validation, console inspection, network checks, and UI runtime diagnostics.
+- **[Security Review](skills/security-review/SKILL.md)** — owns security-focused review for injection points, credential exposure, and client-side risks.
+- **[Code Verification & Cleaning](skills/code-verify-and-clean-skill/SKILL.md)** — the optional bundle that combines every sub-skill and coordinates the end-to-end reporting workflow.
+
+---
+
+## 🚀 Installation
+
+Install the smallest sub-skill that covers the task. For example, install **Clean Code** by itself:
 
 #### Code Verification & Cleaning
 
 ```bash
-npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
+npx skills add abozezo-dev/Code-Quality-Skill/clean-code
 ```
 
 #### Project Planning
@@ -83,138 +81,82 @@ The repository page is customized with [`skills.sh.json`](skills.sh.json), which
 
 ## 📁 Repository Structure
 
-```
+```text
 Code-Quality-Skill/
 ├── skills/
 │   ├── project-planning/
 │   │   └── SKILL.md                        # Planning-only skill specification
 │   └── code-verify-and-clean-skill/
-│       ├── assets/
-│       │   ├── report-template.md          # Post-modification report template
-│       │   ├── review-template.md          # Template for code reviews
-│       │   ├── scan-template.md            # Pre-modification scan template
-│       │   └── verification-checklist.md   # Comprehensive checklist
-│       ├── reference/
-│       │   ├── code-cleaning-universal.md  # Cleaning standards & patterns
-│       │   ├── devtools-verification.md    # Browser audit workflows
-│       │   ├── reporting-workflow.md       # SCAN.md and REPORT.md workflow
-│       │   └── security-verification.md    # Security check guidelines
-│       ├── scripts/
-│       │   └── verify-pipeline.sh          # Automated verification script
-│       └── SKILL.md                        # Full skill specification
-├── .github/
-│   └── workflows/
-│       └── ci.yml                          # CI/CD pipeline
-├── .gitignore                              # Local and generated file exclusions
-├── skills.sh.json                          # skills.sh repository page customization
-├── LICENSE                                 # MIT License
-└── README.md                               # You are here!
+│       ├── assets/                             # Bundle report and review templates
+│       ├── reference/                          # Bundle workflow guides
+│       ├── scripts/                            # Bundle automation
+│       └── SKILL.md                            # All-in-one workflow
+├── .github/workflows/ci.yml                    # CI checks
+├── skills.sh.json                              # skills.sh repository configuration
+├── LICENSE                                     # MIT license
+└── README.md                                   # You are here
 ```
+
+Each directory above links to its own `SKILL.md`: [Clean Code](skills/clean-code/SKILL.md), [Code Verification](skills/code-verification/SKILL.md), [Runtime Auditing](skills/runtime-auditing/SKILL.md), [Security Review](skills/security-review/SKILL.md), and the [all-in-one bundle](skills/code-verify-and-clean-skill/SKILL.md).
 
 ---
 
 ## 🧠 Core Principles
 
-### 1. Trust But Verify
-Never assume code works just because it looks correct. Always:
-- **Execute** - Boot servers, compile modules, run interpreters
-- **Observe** - Use browser tools to catch visual/architectural breaks
-- **Isolate** - Capture stack traces and system warnings
+### 1. Trust But Verify — Code Verification and Runtime Auditing
 
-### 2. Radical Code Cleaning
-Keep code lean, modern, and maintainable:
-- 🗑️ Prune unused components, imports, and variables
-- 🔄 Refactor complex logic into explicit early returns
-- ♻️ Reuse global utilities instead of reinventing logic
+Do not treat code that looks correct as code that is correct. **Code Verification** executes builds, tests, and static checks; **Runtime Auditing** validates the running application, including browser console output and network activity.
 
-### 3. Severity Tiers
+### 2. Keep Code Lean — Clean Code
+
+**Clean Code** keeps codebases maintainable by pruning unused components, imports, and variables; reducing duplication; and simplifying complex logic into explicit, reusable modules.
+
+### 3. Treat Security Findings as First-Class — Security Review
+
+**Security Review** identifies injection opportunities, exposed tokens, and client-side exposure risks before they become production issues.
+
+### 4. Use Clear Severity Tiers — All-in-One Bundle
+
+The **Code Verification & Cleaning** bundle uses consistent markers when coordinating multiple sub-skills:
 
 | Marker | Meaning | Action |
 |--------|---------|--------|
-| 🔴 `[breaking-error]` | Code crashes or breaks workflows | **Blocks merge** |
-| 🟡 `[code-smell]` | Works but introduces technical debt | Schedule refactor |
-| 🟢 `[refactored]` | Auto-cleaned by agent | Already resolved |
+| 🔴 `[breaking-error]` | Code crashes, fails checks, or breaks a workflow | **Blocks merge** |
+| 🟡 `[code-smell]` | Code works but adds debt or avoidable complexity | Schedule remediation |
+| 🟢 `[refactored]` | A cleanup was applied and verified | Already resolved |
 
 ---
 
-## ⚙️ Verification Pipeline
+## ⚙️ Workflow
 
-### Phase 1: Static Analysis
-```bash
-# Run native linters and formatters
-npm run lint
-npm run format
-
-# Execute pre-checks
-./skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
-```
-
-### Phase 2: Structural Review
-- Check modular breakdown (single responsibility)
-- Audit for code duplication across modules
-- Validate reusability patterns
-
-### Phase 3: Live Browser Audits *(Frontend)*
-1. Start local preview server
-2. Open browser DevTools
-3. Inspect console for errors/warnings
-4. Trace network requests (no 400/500 errors)
+1. **Clean Code** removes obvious dead code, duplication, and structural bloat.
+2. **Code Verification** runs the repository's native build, test, lint, and formatting commands.
+3. **Runtime Auditing** validates changed frontend behavior in a live browser when applicable.
+4. **Security Review** checks the changed surface for security risks.
+5. The **all-in-one bundle** coordinates the full workflow and records the pre-change `SCAN.md` and post-change `REPORT.md` when comprehensive reporting is required.
 
 ---
 
-## 📝 Reporting Workflow
+## 📚 Resources
 
-The verification and cleaning workflow produces two application reports:
+The optional bundle supplies shared workflow resources; use the indicated sub-skill for the capability each resource supports.
 
-| Report | When Generated | Purpose |
-|--------|----------------|---------|
-| `SCAN.md` | Before modifications | Read-only scan report covering pre-modification verification, cleaning, and security findings. No application files may be modified during this stage. |
-| `REPORT.md` | After modifications | Final application report documenting what changed, what was verified, remaining risks, and the final security/cleaning status. |
-
-Use `SCAN.md` to establish the baseline state of the application before edits, then use `REPORT.md` to summarize the completed remediation and post-change validation. See `skills/code-verify-and-clean-skill/reference/reporting-workflow.md` for the full workflow and use `skills/code-verify-and-clean-skill/assets/scan-template.md` and `skills/code-verify-and-clean-skill/assets/report-template.md` as starting points for consistent reports.
-
----
-
-## 📚 Additional Resources
-
-- [DevTools Verification Guide](skills/code-verify-and-clean-skill/reference/devtools-verification.md)
-- [Code Cleaning Standards](skills/code-verify-and-clean-skill/reference/code-cleaning-universal.md)
-- [Security Verification](skills/code-verify-and-clean-skill/reference/security-verification.md)
-- [Reporting Workflow Guide](skills/code-verify-and-clean-skill/reference/reporting-workflow.md)
-- [SCAN.md Template](skills/code-verify-and-clean-skill/assets/scan-template.md)
-- [REPORT.md Template](skills/code-verify-and-clean-skill/assets/report-template.md)
-- [Review Template](skills/code-verify-and-clean-skill/assets/review-template.md)
-- [Verification Checklist](skills/code-verify-and-clean-skill/assets/verification-checklist.md)
+| Resource | Capability owner | Description |
+|----------|------------------|-------------|
+| [Code Cleaning Standards](skills/code-verify-and-clean-skill/reference/code-cleaning-universal.md) | [Clean Code](skills/clean-code/SKILL.md) | Cleaning standards and patterns for reducing technical debt. |
+| [DevTools Verification Guide](skills/code-verify-and-clean-skill/reference/devtools-verification.md) | [Runtime Auditing](skills/runtime-auditing/SKILL.md) | Browser, layout, console, and network-audit guidance. |
+| [Security Verification Guide](skills/code-verify-and-clean-skill/reference/security-verification.md) | [Security Review](skills/security-review/SKILL.md) | Security checks for injection and client-side exposure. |
+| [Reporting Workflow Guide](skills/code-verify-and-clean-skill/reference/reporting-workflow.md) | [Code Verification & Cleaning bundle](skills/code-verify-and-clean-skill/SKILL.md) | `SCAN.md` and `REPORT.md` workflow and evidence standards. |
+| [Verification Checklist](skills/code-verify-and-clean-skill/assets/verification-checklist.md) | [Code Verification](skills/code-verification/SKILL.md) | Checklist for automated verification gates. |
+| [Review Template](skills/code-verify-and-clean-skill/assets/review-template.md) | [Security Review](skills/security-review/SKILL.md) | Consistent review findings and remediation notes. |
+| [SCAN.md Template](skills/code-verify-and-clean-skill/assets/scan-template.md) | [Code Verification & Cleaning bundle](skills/code-verify-and-clean-skill/SKILL.md) | Baseline report template before modifications. |
+| [REPORT.md Template](skills/code-verify-and-clean-skill/assets/report-template.md) | [Code Verification & Cleaning bundle](skills/code-verify-and-clean-skill/SKILL.md) | Final report template after remediation and validation. |
 
 ---
 
-## 📄 License
+## Reporting workflow
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2026 abozezo-dev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
