@@ -154,7 +154,7 @@ The optional bundle supplies shared workflow resources; use the indicated sub-sk
 
 ---
 
-## 📄 License
+## Reporting workflow
 
 This project is licensed under the [MIT License](LICENSE).
 
