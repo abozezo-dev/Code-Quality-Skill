@@ -1,6 +1,6 @@
-# 🛡️ Code Verification, Cleaning & Planning Skills
+# 🛡️ Code Execution, Verification & Cleaning Skills
 
-> **Reusable AI skills for project planning, code verification, cleanup, runtime auditing, and security-focused review.**
+> **Reusable AI skills for a four-stage code workflow—planning, execution/building, verification, and review—plus verification, cleanup, runtime auditing, and security-focused review.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -10,8 +10,10 @@
 ## 📋 Table of Contents
 
 - [Purpose](#-purpose)
-- [Sub-skills](#-sub-skills)
-- [Installation](#-installation)
+- [Four-Stage Workflow](#-four-stage-workflow)
+- [Features](#-features)
+- [Getting Started](#-getting-started)
+- [Skills.sh Listing](#-skillssh-listing)
 - [Repository Structure](#-repository-structure)
 - [Core Principles](#-core-principles)
 - [Workflow](#-workflow)
@@ -22,7 +24,7 @@
 
 ## 🎯 Purpose
 
-Code Quality Skills separates code-quality work into small, composable sub-skills. Choose a targeted skill when you need one type of review, or use the all-in-one bundle when a change needs the entire verification-and-cleaning workflow.
+These skills guide AI agents through an explicit delivery workflow and empower them to:
 
 | Need | Owning sub-skill |
 |------|------------------|
@@ -34,7 +36,29 @@ Code Quality Skills separates code-quality work into small, composable sub-skill
 
 ---
 
-## 🧩 Sub-skills
+## 🧭 Four-Stage Workflow
+
+Use [`skills/code-execution-skill/`](skills/code-execution-skill/) to coordinate every change through these ordered stages. Each stage has a required input and produces the handoff artifact required by the next stage.
+
+| Stage | Input | Output / handoff |
+| --- | --- | --- |
+| **1. Planning** | Change request and repository context | **Approved plan** covering scope, approach, risks, acceptance criteria, and planned checks. |
+| **2. Execution / Building** | Approved plan | **Implementation summary** recording completed work, changed files, build results, deviations, and known risks. |
+| **3. Verification** | Implementation summary and changed code | **Verification results** with lint, test, runtime, security, and reporting evidence. |
+| **4. Review** | Implementation summary and verification results | **Final review findings** with structural, security, and evidence-based disposition. |
+
+### Shared verification and review skill
+
+Both **verification** and **review** use the existing [`skills/code-verify-and-clean-skill/`](skills/code-verify-and-clean-skill/) skill. Do **not** move or rewrite that skill; it remains the shared source of truth.
+
+- **Verification** follows its linting, tests, runtime checks, security checks, and reporting workflow. Record the commands, outcomes, evidence, remaining risks, and proceed/return recommendation in the verification results.
+- **Review** follows its structural-cleanup standards, security-review guidance, [review template](skills/code-verify-and-clean-skill/assets/review-template.md), and verification evidence requirements. Record blocking issues, follow-ups, residual risks, and final disposition in the final review findings.
+
+A change is complete only after all four artifacts are preserved: approved plan, implementation summary, verification results, and final review findings.
+
+---
+
+## ✨ Features
 
 - **[Clean Code](skills/clean-code/SKILL.md)** — owns dead-code removal, duplicate-code reduction, simplification, and modularity improvements.
 - **[Code Verification](skills/code-verification/SKILL.md)** — owns compilation, tests, linting, formatting, and other automated quality gates.
@@ -57,14 +81,18 @@ npx skills add abozezo-dev/Code-Quality-Skill/clean-code
 #### Project Planning
 
 ```bash
-npx skills add abozezo-dev/Code-Quality-Skill/project-planning
+npx skills add abozezo-dev/Code-Quality-Skill/code-execution-skill
+
+# Add the shared verification and review skill
+npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 ```
 
 ### Quick Start
 
-1. Add the skill to your AI agent configuration
-2. Run verification on your target codebase
-3. Review the generated report templates in `skills/code-verify-and-clean-skill/assets/`
+1. Add `code-execution-skill` and the shared `code-verify-and-clean-skill` to your AI agent configuration
+2. Create and approve a plan, then implement and build the change
+3. Use the existing verification-and-cleaning skill for verification and review
+4. Preserve the four required handoff artifacts
 
 ---
 
@@ -72,10 +100,12 @@ npx skills add abozezo-dev/Code-Quality-Skill/project-planning
 
 View these skills on skills.sh:
 
+- [Code Execution Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-execution-skill)
 - [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
 - [Project Planning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/project-planning)
 
-The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups the skills for easier discovery. Skill definitions live under [`skills/`](skills/) in a skills.sh-compatible layout.
+The repository page is customized with [`skills.sh.json`](skills.sh.json), and both skills live under [`skills/`](skills/) for a clean skills.sh-compatible layout.
+
 
 ---
 
@@ -84,8 +114,8 @@ The repository page is customized with [`skills.sh.json`](skills.sh.json), which
 ```text
 Code-Quality-Skill/
 ├── skills/
-│   ├── project-planning/
-│   │   └── SKILL.md                        # Planning-only skill specification
+│   ├── code-execution-skill/
+│   │   └── SKILL.md                            # Four-stage delivery workflow
 │   └── code-verify-and-clean-skill/
 │       ├── assets/                             # Bundle report and review templates
 │       ├── reference/                          # Bundle workflow guides

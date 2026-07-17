@@ -1,22 +1,14 @@
 {
-    "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
-    "notGrouped": "bottom",
-    "groupings": [
-        {
-            "title": "Project Planning",
-            "description": "Requirements clarification, milestone planning, and implementation-ready delivery plans.",
-            "skills": [
-                "project-planning"
-            ]
-        },
-        {
-            "title": "Code Quality",
-            "description": "Plan-driven implementation, React/Next.js guidance, verification, cleanup, runtime auditing, and security review skills.",
-            "skills": [
-                "code-verify-and-clean-skill",
-                "execution",
-                "react-best-practices"
-            ]
-        }
-    ]
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Code Quality",
+      "description": "Code verification, cleanup, runtime auditing, and security review skills.",
+      "skills": [
+        "code-execution-skill",
+        "code-verify-and-clean-skill"
+      ]
+    }
+  ]
 }
