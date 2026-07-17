@@ -3,6 +3,13 @@
     "notGrouped": "bottom",
     "groupings": [
         {
+            "title": "Project Planning",
+            "description": "Requirements clarification, milestone planning, and implementation-ready delivery plans.",
+            "skills": [
+                "project-planning"
+            ]
+        },
+        {
             "title": "Code Quality",
             "description": "Plan-driven implementation, React/Next.js guidance, verification, cleanup, runtime auditing, and security review skills.",
             "skills": [

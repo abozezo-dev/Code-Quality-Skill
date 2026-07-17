@@ -1,6 +1,6 @@
-# 🛡️ Code Quality Skills
+# 🛡️ Code Verification, Cleaning & Planning Skills
 
-> **A modular collection of AI sub-skills for verifying, cleaning, auditing, and securing code.** Install only the focused capability your task needs, or install the optional bundle for the complete workflow.
+> **Reusable AI skills for project planning, code verification, cleanup, runtime auditing, and security-focused review.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -48,28 +48,34 @@ Code Quality Skills separates code-quality work into small, composable sub-skill
 
 Install the smallest sub-skill that covers the task. For example, install **Clean Code** by itself:
 
+#### Code Verification & Cleaning
+
 ```bash
 npx skills add abozezo-dev/Code-Quality-Skill/clean-code
 ```
 
-Install any other individual sub-skill as needed:
+#### Project Planning
 
 ```bash
-# Automated builds, tests, linting, and formatting
-npx skills add abozezo-dev/Code-Quality-Skill/code-verification
-
-# Browser and DevTools runtime checks
-npx skills add abozezo-dev/Code-Quality-Skill/runtime-auditing
-
-# Security-focused code review
-npx skills add abozezo-dev/Code-Quality-Skill/security-review
+npx skills add abozezo-dev/Code-Quality-Skill/project-planning
 ```
 
-Or install the optional all-in-one bundle for the complete code-quality workflow:
+### Quick Start
 
-```bash
-npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
-```
+1. Add the skill to your AI agent configuration
+2. Run verification on your target codebase
+3. Review the generated report templates in `skills/code-verify-and-clean-skill/assets/`
+
+---
+
+## 🔗 Skills.sh Listing
+
+View these skills on skills.sh:
+
+- [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
+- [Project Planning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/project-planning)
+
+The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups the skills for easier discovery. Skill definitions live under [`skills/`](skills/) in a skills.sh-compatible layout.
 
 ---
 
@@ -78,14 +84,8 @@ npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 ```text
 Code-Quality-Skill/
 ├── skills/
-│   ├── clean-code/
-│   │   └── SKILL.md                            # Cleanup, deduplication, and modularity
-│   ├── code-verification/
-│   │   └── SKILL.md                            # Builds, tests, linting, and formatting
-│   ├── runtime-auditing/
-│   │   └── SKILL.md                            # Browser and DevTools validation
-│   ├── security-review/
-│   │   └── SKILL.md                            # Security-focused review
+│   ├── project-planning/
+│   │   └── SKILL.md                        # Planning-only skill specification
 │   └── code-verify-and-clean-skill/
 │       ├── assets/                             # Bundle report and review templates
 │       ├── reference/                          # Bundle workflow guides
