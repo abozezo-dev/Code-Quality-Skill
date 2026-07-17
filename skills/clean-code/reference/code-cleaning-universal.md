@@ -101,13 +101,13 @@ const fullNameB = `${firstName} ${lastName}`;
 // After
 const getFullName = (firstName: string, lastName: string) =>
   `${firstName} ${lastName}`;
+```
 
-
-Replace Stringly-Typed Logic
+### Replace Stringly-Typed Logic
 
 Prefer constants or enums when values are reused across branches.
 
-Cleanup Priority
+## Cleanup Priority
 
 When reviewing code, prioritize in this order:
 
@@ -125,7 +125,7 @@ dead code is removed
 control flow is clearer
 duplication is reduced
 the result remains easy to test
-Final Check
+## Final Check
 
 Before approving, ask:
 

@@ -1,7 +1,4 @@
 
-## `reference/devtools-verification.md`
-
-```md
 # DevTools Verification Guide
 
 This guide defines how an AI agent should verify runtime behavior using browser-based tools and local execution.
