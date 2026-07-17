@@ -137,95 +137,50 @@ Keep code lean, modern, and maintainable:
 - 🔄 Refactor complex logic into explicit early returns
 - ♻️ Reuse global utilities instead of reinventing logic
 
-### 3. Severity Tiers
+Install the orchestrator only when a coordinated scan, remediation, verification, and final report are needed:
 
-| Marker | Meaning | Action |
-|--------|---------|--------|
-| 🔴 `[breaking-error]` | Code crashes or breaks workflows | **Blocks merge** |
-| 🟡 `[code-smell]` | Works but introduces technical debt | Schedule refactor |
-| 🟢 `[refactored]` | Auto-cleaned by agent | Already resolved |
-
----
-
-## ⚙️ Verification Pipeline
-
-### Phase 1: Static Analysis
 ```bash
-# Run native linters and formatters
-npm run lint
-npm run format
-
-# Execute pre-checks
-./skills/code-verify-and-clean-skill/scripts/verify-pipeline.sh
+npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 ```
 
-### Phase 2: Structural Review
-- Check modular breakdown (single responsibility)
-- Audit for code duplication across modules
-- Validate reusability patterns
+## Skills
 
-### Phase 3: Live Browser Audits *(Frontend)*
-1. Start local preview server
-2. Open browser DevTools
-3. Inspect console for errors/warnings
-4. Trace network requests (no 400/500 errors)
+| Skill | Use it for | Included resources |
+|---|---|---|
+| [`clean-code`](skills/clean-code/) | Dead-code removal, unused imports, duplication, complexity reduction, data flow, and modular architecture. | Universal cleaning guide and clean-code review template. |
+| [`code-verification`](skills/code-verification/) | Builds, tests, linters, formatters, type checks, and evidence-backed verification. | Optional cross-ecosystem pipeline and verification checklist. |
+| [`runtime-devtools-audit`](skills/runtime-devtools-audit/) | Browser rendering, hydration, console, network, and interaction audits. | DevTools verification guide. |
+| [`security-review`](skills/security-review/) | Input validation, authorization, injection, secrets, storage, uploads, redirects, and secure defaults. | Security verification guide. |
+| [`code-verify-and-clean-skill`](skills/code-verify-and-clean-skill/) | Composing the focused skills and producing before/after quality reports. | Reporting workflow plus `SCAN.md` and `REPORT.md` templates. |
 
----
+## Repository structure
 
-## 📝 Reporting Workflow
-
-The verification and cleaning workflow produces two application reports:
-
-| Report | When Generated | Purpose |
-|--------|----------------|---------|
-| `SCAN.md` | Before modifications | Read-only scan report covering pre-modification verification, cleaning, and security findings. No application files may be modified during this stage. |
-| `REPORT.md` | After modifications | Final application report documenting what changed, what was verified, remaining risks, and the final security/cleaning status. |
-
-Use `SCAN.md` to establish the baseline state of the application before edits, then use `REPORT.md` to summarize the completed remediation and post-change validation. See `skills/code-verify-and-clean-skill/reference/reporting-workflow.md` for the full workflow and use `skills/code-verify-and-clean-skill/assets/scan-template.md` and `skills/code-verify-and-clean-skill/assets/report-template.md` as starting points for consistent reports.
-
----
-
-## 📚 Additional Resources
-
-- [DevTools Verification Guide](skills/code-verify-and-clean-skill/reference/devtools-verification.md)
-- [Code Cleaning Standards](skills/code-verify-and-clean-skill/reference/code-cleaning-universal.md)
-- [Security Verification](skills/code-verify-and-clean-skill/reference/security-verification.md)
-- [Reporting Workflow Guide](skills/code-verify-and-clean-skill/reference/reporting-workflow.md)
-- [SCAN.md Template](skills/code-verify-and-clean-skill/assets/scan-template.md)
-- [REPORT.md Template](skills/code-verify-and-clean-skill/assets/report-template.md)
-- [Review Template](skills/code-verify-and-clean-skill/assets/review-template.md)
-- [Verification Checklist](skills/code-verify-and-clean-skill/assets/verification-checklist.md)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2026 abozezo-dev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+```text
+skills/
+├── clean-code/
+│   ├── assets/review-template.md
+│   ├── reference/code-cleaning-universal.md
+│   └── SKILL.md
+├── code-verification/
+│   ├── assets/verification-checklist.md
+│   ├── scripts/verify-pipeline.sh
+│   └── SKILL.md
+├── runtime-devtools-audit/
+│   ├── reference/devtools-verification.md
+│   └── SKILL.md
+├── security-review/
+│   ├── reference/security-verification.md
+│   └── SKILL.md
+└── code-verify-and-clean-skill/  # Optional orchestrator
+    ├── assets/{scan-template,report-template}.md
+    ├── reference/reporting-workflow.md
+    └── SKILL.md
 ```
 
----
+## Reporting workflow
+
+When using the orchestration skill, create `SCAN.md` after a read-only assessment and before application changes. After remediation and re-verification, create `REPORT.md` that records results, reconciles findings, and notes remaining risks. See [the reporting workflow](skills/code-verify-and-clean-skill/reference/reporting-workflow.md) for requirements.
+
+## License
 
 <p align="center">Made with ❤️ by <strong>abozezo-dev</strong></p>

@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT_DIR="${1:-$PWD}"
+if [ ! -d "$ROOT_DIR" ]; then
+  echo "[error] project directory does not exist: $ROOT_DIR" >&2
+  exit 2
+fi
 cd "$ROOT_DIR"
 
 echo "[verify] Starting verification pipeline..."
