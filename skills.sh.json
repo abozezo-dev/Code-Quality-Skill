@@ -1,13 +1,17 @@
 {
-    "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
-    "notGrouped": "bottom",
-    "groupings": [
-        {
-            "title": "Code Quality",
-            "description": "Code verification, cleanup, runtime auditing, and security review skills.",
-            "skills": [
-                "code-verify-and-clean-skill"
-            ]
-        }
-    ]
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Code Quality",
+      "description": "Focused code cleanup, verification, runtime auditing, and security review skills.",
+      "skills": [
+        "clean-code",
+        "code-verification",
+        "runtime-devtools-audit",
+        "security-review",
+        "code-verify-and-clean-skill"
+      ]
+    }
+  ]
 }
