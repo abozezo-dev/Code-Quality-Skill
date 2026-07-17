@@ -4,9 +4,11 @@
     "groupings": [
         {
             "title": "Code Quality",
-            "description": "Code verification, cleanup, runtime auditing, and security review skills.",
+            "description": "Plan-driven implementation, React/Next.js guidance, verification, cleanup, runtime auditing, and security review skills.",
             "skills": [
-                "code-verify-and-clean-skill"
+                "code-verify-and-clean-skill",
+                "execution",
+                "react-best-practices"
             ]
         }
     ]

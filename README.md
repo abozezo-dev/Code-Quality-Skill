@@ -1,6 +1,6 @@
-# 🛡️ Code Verification & Cleaning Skill
+# 🛡️ Code Quality Skills
 
-> **A reusable AI skill for code verification, cleanup, runtime auditing, and security-focused review, organized under `skills/code-verify-and-clean-skill/` for skills.sh discovery.**
+> **Reusable AI skills for plan-driven implementation, React/Next.js implementation guidance, and code verification, cleanup, runtime auditing, and security-focused review.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -12,6 +12,7 @@
 - [Purpose](#-purpose)
 - [Features](#-features)
 - [Getting Started](#-getting-started)
+- [Implementation Workflow](#-implementation-workflow)
 - [Skills.sh Listing](#-skillssh-listing)
 - [Repository Structure](#-repository-structure)
 - [Core Principles](#-core-principles)
@@ -23,7 +24,7 @@
 
 ## 🎯 Purpose
 
-This skill empowers AI agents to:
+These skills empower AI agents to:
 
 - ✅ **Verify code correctness** - Ensure logic works as intended
 - 🧹 **Remove dead code & duplication** - Keep codebases lean and maintainable
@@ -31,6 +32,7 @@ This skill empowers AI agents to:
 - 🔒 **Check security issues** - Identify vulnerabilities and exposure risks
 - 🏗️ **Enforce clean architecture** - Maintain modular, single-responsibility design
 - 🧪 **Validate builds, tests & linting** - Automated quality gates
+- 🧭 **Execute approved plans incrementally** - Implement small, verified changes that follow repository conventions
 
 ---
 
@@ -52,13 +54,26 @@ This skill empowers AI agents to:
 
 ```bash
 npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
+npx skills add abozezo-dev/Code-Quality-Skill/execution
+npx skills add abozezo-dev/Code-Quality-Skill/react-best-practices
 ```
 
 ### Quick Start
 
-1. Add the skill to your AI agent configuration
-2. Run verification on your target codebase
-3. Review the generated report templates in `skills/code-verify-and-clean-skill/assets/`
+1. Install `execution` after an implementation plan has been approved.
+2. Ask the agent to implement the plan; it works in small verifiable increments and hands off to `code-verify-and-clean-skill`.
+3. For React or Next.js changes, install `react-best-practices` too. `execution` invokes it only for React/Next.js work.
+4. Run verification on the target codebase and review the generated report templates in `skills/code-verify-and-clean-skill/assets/`.
+
+## 🧭 Implementation Workflow
+
+The [`execution`](skills/execution/SKILL.md) skill consumes an **approved** plan, discovers local conventions,
+implements one independently verifiable increment at a time, and sends the completed change to
+[`code-verify-and-clean-skill`](skills/code-verify-and-clean-skill/SKILL.md) for verification and review.
+
+For React or Next.js implementation tasks, it has an explicit local dependency on
+[`react-best-practices`](skills/react-best-practices/SKILL.md). Install both skills for those projects; no React
+guidance is applied to non-React work.
 
 ---
 
@@ -67,18 +82,10 @@ npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 View this skill on skills.sh:
 
 - [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
+- [Implementation Execution](https://skills.sh/abozezo-dev/Code-Quality-Skill/execution)
+- [React and Next.js Best Practices](https://skills.sh/abozezo-dev/Code-Quality-Skill/react-best-practices)
 
-The repository page is customized with [`skills.sh.json`](skills.sh.json), and the skill files live under [`skills/code-verify-and-clean-skill/`](skills/code-verify-and-clean-skill/) for a clean skills.sh-compatible layout.
-
----
-
-## 🔗 Skills.sh Listing
-
-View this skill on skills.sh:
-
-- [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
-
-The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups this skill under **Code Quality** for easier discovery.
+The repository page is customized with [`skills.sh.json`](skills.sh.json), and all skill files live under [`skills/`](skills/) for a clean skills.sh-compatible layout.
 
 ---
 
@@ -101,6 +108,10 @@ Code-Quality-Skill/
 │       ├── scripts/
 │       │   └── verify-pipeline.sh          # Automated verification script
 │       └── SKILL.md                        # Full skill specification
+│   ├── execution/
+│   │   └── SKILL.md                        # Approved-plan implementation workflow
+│   └── react-best-practices/
+│       └── SKILL.md                        # React and Next.js implementation guidance
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                          # CI/CD pipeline
