@@ -1,6 +1,6 @@
-# 🛡️ Code Verification & Cleaning Skill
+# 🛡️ Code Verification, Cleaning & Planning Skills
 
-> **A reusable AI skill for code verification, cleanup, runtime auditing, and security-focused review, organized under `skills/code-verify-and-clean-skill/` for skills.sh discovery.**
+> **Reusable AI skills for project planning, code verification, cleanup, runtime auditing, and security-focused review.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
@@ -50,8 +50,16 @@ This skill empowers AI agents to:
 
 ### Installation
 
+#### Code Verification & Cleaning
+
 ```bash
 npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
+```
+
+#### Project Planning
+
+```bash
+npx skills add abozezo-dev/Code-Quality-Skill/project-planning
 ```
 
 ### Quick Start
@@ -64,21 +72,12 @@ npx skills add abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill
 
 ## 🔗 Skills.sh Listing
 
-View this skill on skills.sh:
+View these skills on skills.sh:
 
 - [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
+- [Project Planning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/project-planning)
 
-The repository page is customized with [`skills.sh.json`](skills.sh.json), and the skill files live under [`skills/code-verify-and-clean-skill/`](skills/code-verify-and-clean-skill/) for a clean skills.sh-compatible layout.
-
----
-
-## 🔗 Skills.sh Listing
-
-View this skill on skills.sh:
-
-- [Code Verification & Cleaning Skill](https://skills.sh/abozezo-dev/Code-Quality-Skill/code-verify-and-clean-skill)
-
-The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups this skill under **Code Quality** for easier discovery.
+The repository page is customized with [`skills.sh.json`](skills.sh.json), which groups the skills for easier discovery. Skill definitions live under [`skills/`](skills/) in a skills.sh-compatible layout.
 
 ---
 
@@ -87,6 +86,8 @@ The repository page is customized with [`skills.sh.json`](skills.sh.json), which
 ```
 Code-Quality-Skill/
 ├── skills/
+│   ├── project-planning/
+│   │   └── SKILL.md                        # Planning-only skill specification
 │   └── code-verify-and-clean-skill/
 │       ├── assets/
 │       │   ├── report-template.md          # Post-modification report template
